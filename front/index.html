@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heladería El Iglú | Gestión de pedidos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="encabezado-contenido">
+            <div class="marca">
+                <span class="marca-icono">🍦</span>
+                <div>
+                    <h1>Heladería El Iglú</h1>
+                    <p>Sistema de gestión de pedidos</p>
+                </div>
+            </div>
+            <button id="btnActualizar" class="btn-secundario">
+                Actualizar pedidos
+            </button>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <section class="bienvenida">
+            <div>
+                <span class="etiqueta-superior">MOSTRADOR DIGITAL</span>
+                <h2>Armá el pedido de tu cliente</h2>
+                <p>Elegí el tamaño y hasta tres sabores disponibles.</p>
+            </div>
+            <span class="bienvenida-icono">🍨</span>
+        </section>
+
+        <div id="mensaje" class="mensaje oculto" role="status"></div>
+
+        <section class="panel-armado">
+            <div class="panel panel-sabores">
+                <div class="titulo-seccion">
+                    <div>
+                        <h2>1. Elegí los sabores</h2>
+                        <p>Seleccioná hasta tres opciones.</p>
+                    </div>
+                    <span id="contadorSabores" class="contador">0 / 3</span>
+                </div>
+
+                <div id="grillaSabores" class="grilla-sabores"></div>
+            </div>
+
+            <div class="panel panel-formulario">
+                <div class="titulo-seccion">
+                    <div>
+                        <h2>2. Completá el pedido</h2>
+                        <p>Ingresá los datos del cliente.</p>
+                    </div>
+                </div>
+
+                <form id="formPedido">
+                    <label for="txtCliente">Nombre del cliente</label>
+                    <input
+                        type="text"
+                        id="txtCliente"
+                        maxlength="80"
+                        placeholder="Nombre y apellido"
+                        required
+                    >
+
+                    <label for="cboTamanio">Tamaño del pote</label>
+                    <select id="cboTamanio">
+                        <option value="Cuarto">Cuarto - 1/4 kg</option>
+                        <option value="Medio">Medio - 1/2 kg</option>
+                        <option value="Kilo">Kilo - 1 kg</option>
+                    </select>
+
+                    <h3>Resumen del pedido</h3>
+                    <div id="resumenPedido"></div>
+
+                    <button type="submit" id="btnCrearPedido" class="btn-principal">
+                        Registrar pedido
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="panel panel-pedidos">
+            <div class="titulo-seccion">
+                <div>
+                    <h2>3. Pedidos registrados</h2>
+                    <p>Controlá la preparación y entrega de los pedidos.</p>
+                </div>
+                <span id="totalPedidos" class="contador">0 pedidos</span>
+            </div>
+
+            <div id="contadoresEstados" class="contadores-estados"></div>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>N.º</th>
+                            <th>Cliente</th>
+                            <th>Tamaño</th>
+                            <th>Sabores</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPedidos"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Heladería El Iglú · Programación II · 2026</p>
+    </footer>
+
+    <!-- Los componentes se cargan antes de app.js porque app.js utiliza sus funciones. -->
+    <script src="componentes/tarjetaSabor.js"></script>
+    <script src="componentes/filaPedido.js"></script>
+    <script src="componentes/resumenPedido.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+
+:root {
+    --principal: #0d766e;
+    --principal-oscuro: #07564f;
+    --fondo: #f3f7f8;
+    --blanco: #ffffff;
+    --texto: #18343b;
+    --secundario: #687c85;
+    --borde: #dce7e9;
+    --sombra: 0 8px 28px rgba(17, 63, 69, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.encabezado {
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+.encabezado-contenido {
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.marca-icono {
+    font-size: 45px;
+}
+
+.marca h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.marca p {
+    margin: 5px 0 0;
+    color: var(--secundario);
+}
+
+.contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 28px;
+}
+
+.bienvenida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 30px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    color: white;
+    background: linear-gradient(110deg, #086b63, #169a8e);
+}
+
+.bienvenida h2 {
+    margin: 9px 0;
+    font-size: 29px;
+}
+
+.bienvenida p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.etiqueta-superior {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.bienvenida-icono {
+    font-size: 72px;
+}
+
+.panel-armado {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(310px, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--sombra);
+    min-width: 0;
+}
+
+.titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.titulo-seccion h2 {
+    font-size: 21px;
+    margin: 0 0 7px;
+}
+
+.titulo-seccion p {
+    margin: 0;
+    color: var(--secundario);
+    font-size: 14px;
+}
+
+.contador {
+    display: inline-block;
+    white-space: nowrap;
+    background: #e3f4f1;
+    color: var(--principal);
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.grilla-sabores {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.tarjeta-sabor {
+    min-height: 155px;
+    border: 2px solid var(--borde);
+    background: #fff;
+    border-radius: 13px;
+    padding: 17px 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.tarjeta-sabor:hover:not(.agotada) {
+    border-color: var(--principal);
+    transform: translateY(-2px);
+}
+
+.tarjeta-sabor:focus-visible {
+    outline: 3px solid #1b9b90;
+    outline-offset: 3px;
+}
+
+.tarjeta-sabor.seleccionada {
+    border-color: var(--principal);
+    background: #e8f7f4;
+}
+
+.tarjeta-sabor.agotada {
+    background: #f0f1f2;
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.sabor-icono {
+    font-size: 31px;
+}
+
+.nombre-sabor {
+    font-size: 14px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.sabor-indicador {
+    font-size: 12px;
+    color: var(--secundario);
+}
+
+.seleccionada .sabor-indicador {
+    color: var(--principal);
+    font-weight: bold;
+}
+
+.agotada .sabor-indicador {
+    color: #ab3b3b;
+    font-weight: bold;
+}
+
+.panel-formulario label {
+    display: block;
+    margin: 15px 0 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.panel-formulario input,
+.panel-formulario select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: white;
+    color: var(--texto);
+}
+
+.panel-formulario input:focus,
+.panel-formulario select:focus {
+    outline: 2px solid var(--principal);
+}
+
+.panel-formulario h3 {
+    margin: 26px 0 15px;
+    font-size: 17px;
+}
+
+.resumen-contenido {
+    background: #f7faf9;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.resumen-detalle {
+    margin-bottom: 19px;
+}
+
+.etiqueta {
+    display: block;
+    color: var(--secundario);
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.lista-resumen {
+    padding-left: 20px;
+    margin: 8px 0;
+    line-height: 1.8;
+}
+
+.resumen-vacio {
+    color: var(--secundario);
+}
+
+.resumen-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid var(--borde);
+}
+
+.resumen-total strong {
+    color: var(--principal);
+    font-size: 24px;
+}
+
+.nota-precio {
+    font-size: 12px;
+    color: var(--secundario);
+    margin-bottom: 0;
+}
+
+.btn-principal,
+.btn-secundario,
+.btn-accion {
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.btn-principal {
+    width: 100%;
+    background: var(--principal);
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.btn-principal:hover {
+    background: var(--principal-oscuro);
+}
+
+.btn-principal:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.btn-secundario {
+    background: #e6f3f1;
+    color: var(--principal);
+    padding: 12px 17px;
+}
+
+.panel-pedidos {
+    margin-top: 25px;
+}
+
+.contadores-estados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.contador-estado {
+    padding: 10px 15px;
+    background: #f1f6f7;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    color: var(--secundario);
+    background: #f4f8f9;
+    padding: 15px 12px;
+    white-space: nowrap;
+}
+
+td {
+    border-bottom: 1px solid var(--borde);
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+
+.numero-pedido {
+    font-weight: bold;
+    color: var(--principal);
+}
+
+.celda-sabores {
+    min-width: 170px;
+    line-height: 1.6;
+}
+
+.precio-tabla {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.badge-estado {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    background: #fff0cc;
+    color: #976200;
+}
+
+.estado-listo {
+    background: #dff6e5;
+    color: #20713b;
+}
+
+.estado-retirado {
+    background: #e9edf0;
+    color: #56656e;
+}
+
+.btn-accion {
+    padding: 10px 12px;
+    background: var(--principal);
+    color: white;
+    white-space: nowrap;
+}
+
+.sin-accion {
+    color: var(--secundario);
+    font-size: 12px;
+}
+
+.mensaje {
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mensaje-exito {
+    background: #dcf5e4;
+    color: #176d37;
+}
+
+.mensaje-error {
+    background: #ffe5e5;
+    color: #a22a2a;
+}
+
+.oculto {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    color: var(--secundario);
+    font-size: 13px;
+    padding: 20px;
+}
+
+@media (max-width: 1050px) {
+    .panel-armado {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .contenedor {
+        padding: 15px;
+    }
+
+    .encabezado-contenido {
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+
+    .marca h1 {
+        font-size: 20px;
+    }
+
+    .bienvenida {
+        padding: 22px;
+    }
+
+    .bienvenida h2 {
+        font-size: 23px;
+    }
+
+    .bienvenida-icono {
+        display: none;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .grilla-sabores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resumen-total {
+        flex-wrap: wrap;
+    }
+}
